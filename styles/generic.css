@@ -80,6 +80,19 @@ h2 {
     color: white;
 }
 
+.gallery a {
+    color: white;
+    text-decoration: none;
+}
+
+.gallery a:hover {
+    text-decoration: underline;
+}
+
+.gallery a:visited {
+    color: white;
+}
+
 footer {
     width: 800px;
     margin: auto;
@@ -104,4 +117,33 @@ footer a:visited {
 
 .page-redirect-links {
     font-size: 1.3rem;
+}
+
+section[class|="gallery"] > div {
+    display: flex;
+}
+
+section[class~="gallery-all"] > div {
+    flex-wrap: wrap;
+}
+
+section[class~="gallery"] img {
+    width: calc(0.33 * 800px);
+}
+
+section[class~="gallery-all"] img {
+    width: calc(0.5 * 800px);
+}
+
+section[class|="gallery"] a {
+    color: white;
+    text-decoration: none;
+}
+
+section[class|="gallery"] a:hover {
+    text-decoration: underline;
+}
+
+section[class|="gallery"] a:visited {
+    text-decoration: underline;
 }

@@ -69,7 +69,7 @@
     text-decoration: underline;
 }
 
-.nav-bar a[class*="active"] {
+.nav-bar a[class~="active"] {
     text-decoration: underline;
 }
 
