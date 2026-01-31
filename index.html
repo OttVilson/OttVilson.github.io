@@ -1,11 +1,153 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width">
-        <title>Fantaasiakontsert</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">        
+        <meta name="keywords" content="Conducting,Classical Music,Fantasy">        
+        <title>Fantaasiakontserdid</title>
+        <link rel="shortcut icon" href="/assets/images/tab_icon.jpg" type="image/x-icon">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/assets/fontawesome/css/brands.min.css">
+        <link rel="stylesheet" href="/assets/fontawesome/css/fontawesome.min.css">
     </head>
     <body>
-        Fantaasiakontsert tuleb.
+        <div class="header">
+            <h1>Fantaasiakontserdid</h1>
+            <p>Muusika • Valgus • Installatsioonid</p>
+        </div>
+        <video muted autoplay loop poster="/assets/images/poster.png">
+            <source src="/assets/videos/fantaasiakontsertide_dekoratsioonide_video.mp4" type="video/mp4">
+        </video>
+        <nav>
+            <a href="#team">MEIST</a>
+            <a href="/concerts.html">KONTSERDID</a>
+            <a href="#contact">KONTAKT</a>
+        </nav>
+        <main>
+            <div>
+                <p>Fantaasiakontserdid muudavad saalid üheks õhtuks immersiivseks fantaasiamaailmaks.</p>
+                <p>Kammerorkester, valguskunst ja suured installatsioonid ümbritsevad publiku.</p>
+                <p>Sa astud maagiasse.</p>
+            </div>
+            <div class="visuals">
+                <div><img src="/assets/images/umbritsetud.jpg" alt=""></div>
+                <div><p>Oled installatsioonidest ümbritsetud</p></div>
+                <div>
+                    <p>Saad nende vahel kõndida,</p>
+                    <p>neid katsuda ja nuusutada</p>
+                </div>
+                <div><img src="/assets/images/katsuda.jpg" alt=""></div>
+                <div><img src="/assets/images/valgus2.jpeg" alt=""></div>
+                <div><p>Meeleolu juhib valguskunst</p></div>
+                <div><p>Keelpilliorkester</p></div>
+                <div><img src="/assets/images/valgus.jpg" alt=""></div>
+            </div>
+            <div id="team">
+                <h1>Meist</h1>
+                <div>
+                    <p>Oleme punt oma ala piire kompavaid kunstnikke.</p>
+                    <p>Kohtusime esimest korda Erle "Võlumetsa" pulma korraldades ja koostöös sündinud tulemus oli lihtsalt liiga äge, et seda ainult enda mälestustesse jätta.</p>
+                    <p> Soovist seda võimsat kunstide ühendust uuesti kogeda ja teistega jagada sündisidki Fantaasiakontserdid!</p>
+                </div>
+                <div>
+                    <div class="team-member-card">
+                        <img src="/assets/images/erle.jpg" alt="">
+                        <div>
+                            <p>Erle Kont-Vilson</p>
+                            <p>Kunstiline juht ja dirigent</p>
+                            <p>Erle on rahvusvahelisi auhindu võitnud muusik ja dirigent.</p>
+                        </div>
+                    </div>
+                    <div class="team-member-card">
+                        <img src="/assets/images/oliver.jpg" alt="">
+                        <div>
+                            <p>Oliver Kulpsoo</p>
+                            <p>Valguskunstnik</p>
+                            <p>Oliver on 25-aastase kogemusega tunnustatud valguskunstnik.</p>
+                        </div>
+                    </div>
+                    <div class="team-member-card">
+                        <img src="/assets/images/aire.jpg" alt="">
+                        <div>
+                            <p>Aire Reenumägi</p>
+                            <p>Florist ja installatsioonikunstnik</p>
+                            <p>20-aastase kogemusega rahvusvahelisi auhindu võitnud florist.</p>
+                        </div>
+                    </div>
+                    <div class="team-member-card">
+                        <img src="/assets/images/anu.jpg" alt="">
+                        <div>
+                            <p>Anu Peri</p>
+                            <p>Florist ja installatsioonikunstnik</p>
+                            <p>20-aastase kogemusega rahvusvahelisi auhindu võitnud florist.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="contact">
+                <h1>Kontakt</h1>
+                <p>fantaasiakontserdid@gmail.com</p>
+            </div>
+        </main>
+        <footer>
+            <a href="https://www.instagram.com/fantaasiakontserdid/" target="_blank">
+                <i class="fa-brands fa-2xl fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/people/Fantaasiakontserdid/61583421773971/" target="_blank">
+                <i class="fa-brands fa-2xl fa-facebook"></i>
+            </a>
+            <a href="https://youtu.be/XDMgTjtkWWg?si=_mCzdEx1YNgPNKku" target="_blank">
+                <i class="fa-brands fa-2xl fa-youtube"></i>
+            </a>
+        </footer>
+        <script>
+            let winheight, docheight, trackLength, throttlescroll
+            
+            // https://j11y.io/javascript/get-document-height-cross-browser/
+            function getDocHeight() {
+                let D = document;
+                return Math.max(
+                    D.body.scrollHeight, D.documentElement.scrollHeight,
+                    D.body.offsetHeight, D.documentElement.offsetHeight,
+                    D.body.clientHeight, D.documentElement.clientHeight
+                );
+            }
+
+            function getmeasurements(){
+                winheight= window.innerHeight || (document.documentElement || document.body).clientHeight
+                docheight = getDocHeight()
+                trackLength = docheight - winheight
+            }
+
+            function amountscrolled(){
+                var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop
+                var pctScrolled = Math.floor(scrollTop/trackLength * 100) // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
+                var headerHeight = Math.min(60, scrollTop)
+                const headerRule = [...document.styleSheets[0].cssRules].find(
+                  (r) => r.selectorText === ".header",
+                );
+                headerRule.style.height = `${headerHeight}px`
+                headerRule.style["background-color"] = `rgba(27, 116, 132, ${scrollTop/trackLength})`
+                console.log(pctScrolled + '% scrolled')
+            }
+            
+            getmeasurements()
+            
+            window.addEventListener("resize", function(){
+                getmeasurements()
+            }, false)
+
+            window.addEventListener('scroll', () => {
+                if (!throttlescroll) {
+                    throttlescroll = setTimeout(
+                        () => { 
+                            amountscrolled()
+                            throttlescroll = null
+                        },
+                        50
+                    )
+                }
+            }, false)
+        </script>
     </body>
 </html>

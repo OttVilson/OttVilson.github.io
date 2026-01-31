@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: hsl(from palevioletred calc(h*1) calc(s*1.4) calc(l*0.7));
+    /* font-family: serif; */
+}
+
+.header {
+    position: sticky;
+    position: -webkit-sticky;   
+    top: 0;
+    height: 0;
+    overflow-y: visible;
+    background-color: rgba(27, 116, 132, 0.3);
+}
+
+.header > p, .header > h1 {
+    text-align: center;
+    margin: 0 auto;
+}
+
+video {
+    width: 100%;
+}
+
+nav {
+    /* transform: translateY(-10px); */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: hsl(from palevioletred calc(h*1) calc(s*1.4) calc(l*0.7));
+}
+
+nav > a {
+    color: VisitedText;
+    padding: 14px 16px;
+}
+
+main {
+    margin-bottom: 30px;
+}
+
+main > div:first-child {
+    width: 75%;
+    margin: 4rem auto 4rem;
+}
+
+main > div:first-child > p {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+main > div:nth-child(2) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    width: 75%;
+    margin: 0 auto;
+}
+
+main > div:nth-child(2) > div {
+    margin: 10px;
+}
+
+.visuals > div > img {
+    width: 100%;
+}
+
+.visuals > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.visuals > div > p {
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+}
+
+#team {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#team > h1 {
+    text-align: center;
+}
+
+#team > div:first-of-type {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#team > div:nth-of-type(2) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+@media (width < 600px) {
+    #team > div:nth-of-type(2) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (width >= 600px) {
+    #team > div:nth-of-type(2) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.team-member-card {
+    display: grid;
+    grid-template-rows: 4fr 3fr;
+}
+
+.team-member-card > img {
+    width: 100%;
+}
+
+.team-member-card > div > p:nth-of-type(1) {
+    margin: 7px 0 0;
+    font-weight: bold;
+}
+
+.team-member-card > div > p:nth-of-type(2) {
+    margin: 0;
+    font-weight: bolder;
+}
+
+#contact {
+    text-align: center;
+}
+
+footer > a {
+    margin: 0 5px;
+}
+
+.concerts {
+    background-image: url("/assets/images/poster.png");
+    background-color: rgba(255,255,255,0.3);
+    background-blend-mode: lighten;
+}
+
+#concerts {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 2rem;
+}
+
+#concerts > h1 {
+    margin: 42px 0;
+}
+
+#concerts > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5px 0;
+}
+
+#concerts > div:first-of-type {
+    margin-bottom: 20px;
+}
+
+.concert-card > p {
+    margin: 0 0 10px 0; 
+}
+
+.concert-card > p:first-of-type {
+    font-weight: bold;
+}
+
+.concert-card > p:last-of-type {
+    font-weight: bold;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
