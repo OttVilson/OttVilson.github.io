@@ -15,9 +15,11 @@
             <h1>Fantaasiakontserdid</h1>
             <p>Muusika • Valgus • Installatsioonid</p>
         </div>
-        <video muted autoplay loop poster="/assets/images/poster.png">
-            <source src="/assets/videos/fantaasiakontsertide_dekoratsioonide_video.mp4" type="video/mp4">
-        </video>
+        <div>
+            <video muted autoplay loop poster="/assets/images/poster.png">
+                <source src="/assets/videos/fantaasiakontsertide_dekoratsioonide_video.mp4" type="video/mp4">
+            </video>
+        </div>
         <nav>
             <a href="#team">MEIST</a>
             <a href="/concerts.html">KONTSERDID</a>
@@ -30,17 +32,25 @@
                 <p>Sa astud maagiasse.</p>
             </div>
             <div class="visuals">
-                <div><img src="/assets/images/umbritsetud.jpg" alt=""></div>
-                <div><p>Oled installatsioonidest ümbritsetud</p></div>
                 <div>
-                    <p>Saad nende vahel kõndida,</p>
-                    <p>neid katsuda ja nuusutada</p>
+                    <p>Oled installatsioonidest ümbritsetud</p>
+                    <img src="/assets/images/umbritsetud.jpg" alt="">
                 </div>
-                <div><img src="/assets/images/katsuda.jpg" alt=""></div>
-                <div><img src="/assets/images/valgus2.jpeg" alt=""></div>
-                <div><p>Meeleolu juhib valguskunst</p></div>
-                <div><p>Keelpilliorkester</p></div>
-                <div><img src="/assets/images/valgus.jpg" alt=""></div>
+                <div>
+                    <div>
+                        <p>Saad nende vahel kõndida,</p>
+                        <p>neid katsuda ja nuusutada</p>
+                    </div>
+                    <img src="/assets/images/katsuda.jpg" alt="">
+                </div>
+                <div>
+                    <p>Meeleolu juhib valguskunst</p>
+                    <img src="/assets/images/valgus2.jpeg" alt="">
+                </div>
+                <div>
+                    <p>Keelpilliorkester</p>
+                    <img src="/assets/images/valgus.jpg" alt="">
+                </div>
             </div>
             <div id="team">
                 <h1>Meist</h1>
@@ -126,8 +136,9 @@
                 const headerRule = [...document.styleSheets[0].cssRules].find(
                   (r) => r.selectorText === ".header",
                 );
-                headerRule.style.height = `${headerHeight}px`
-                headerRule.style["background-color"] = `rgba(27, 116, 132, ${scrollTop/trackLength})`
+                const videoDiv = document.querySelector('body > div:nth-of-type(2)')
+                alpha = Math.max(0, Math.min(1, scrollTop/(videoDiv.offsetHeight - 64)))
+                headerRule.style["background-color"] = `rgba(27, 116, 132, ${alpha})`
                 console.log(pctScrolled + '% scrolled')
             }
             

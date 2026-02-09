@@ -1,4 +1,19 @@
+:root {
+    --header-height: 3.5rem;
+}
+
 body {
+    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: fantasy;
     margin: 0;
     padding: 0;
     background-color: black;
@@ -7,17 +22,23 @@ body {
 }
 
 .header {
-    position: sticky;
-    position: -webkit-sticky;   
-    top: 0;
-    height: 0;
-    overflow-y: visible;
-    background-color: rgba(27, 116, 132, 0.3);
+    position: fixed;
+    position: -webkit-fixed;
+    width: 100%;
+    /* alpha will be increased with JavaScript */
+    background-color: rgba(27, 116, 132, 0.0);
+    height: var(--header-height);
 }
 
-.header > p, .header > h1 {
+.header > p, header > h1 {
     text-align: center;
     margin: 0 auto;
+}
+
+body > div:nth-of-type(2) {
+    width: 100%;
+    max-height: calc(100vh - 4rem);
+    overflow: hidden;
 }
 
 video {
@@ -25,7 +46,12 @@ video {
 }
 
 nav {
-    /* transform: translateY(-10px); */
+    /* I haven't been able to explain or modify the gap
+       appearing after the video.
+       Thus, I'm using a hack to close the gap. */
+    transform: translateY(-10px);
+    position: sticky;
+    top: calc(var(--header-height) + 10px);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -33,7 +59,6 @@ nav {
 }
 
 nav > a {
-    color: VisitedText;
     padding: 14px 16px;
 }
 
@@ -49,32 +74,53 @@ main > div:first-child {
 main > div:first-child > p {
     text-align: center;
     font-size: 1.5rem;
+    margin: 0.2rem 0;
 }
 
 main > div:nth-child(2) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    width: 75%;
     margin: 0 auto;
+}
+
+main > div:nth-child(2) > div {
+    display: flex;
+}
+
+@media (width >= 600px) {
+    .visuals {
+        width: 75%;
+    }
+
+    .visuals > div {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .visuals > div:nth-of-type(odd) {
+        flex-direction: row-reverse;
+    }
+
+    .visuals > div:nth-of-type(even) {
+        flex-direction: row;
+    }
+
+    .visuals > div > * {
+        width: 49%;
+    }
+}
+
+@media (width < 600px) {
+    .visuals > div {
+        flex-direction: column;
+    }
 }
 
 main > div:nth-child(2) > div {
     margin: 10px;
 }
 
-.visuals > div > img {
-    width: 100%;
-}
-
-.visuals > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.visuals > div > p {
+.visuals p {
     text-align: center;
+    align-items: center;
     font-size: 2rem;
     margin: 0;
 }
@@ -95,14 +141,7 @@ main > div:nth-child(2) > div {
 
 #team > div:nth-of-type(2) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 40px;
-}
-
-@media (width < 600px) {
-    #team > div:nth-of-type(2) {
-        grid-template-columns: 1fr 1fr;
-    }
 }
 
 @media (width >= 600px) {
@@ -111,9 +150,14 @@ main > div:nth-child(2) > div {
     }
 }
 
+@media (width < 600px) {
+    #team > div:nth-of-type(2) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 .team-member-card {
     display: grid;
-    grid-template-rows: 4fr 3fr;
 }
 
 .team-member-card > img {
